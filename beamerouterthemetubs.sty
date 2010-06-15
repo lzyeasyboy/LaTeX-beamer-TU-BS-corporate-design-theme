@@ -50,6 +50,13 @@
 \newlength{\beamer@tubs@foot@logoheight}
 \setlength{\beamer@tubs@foot@logoheight}{.1\paperheight}
 
+\newlength{\beamer@tubs@headsep}
+\setlength{\beamer@tubs@headsep}{0.5cm}
+
+\newlength{\beamer@tubs@headmargin}
+\setlength{\beamer@tubs@headmargin}{\beamer@tubs@normalmargin}
+\addtolength{\beamer@tubs@headmargin}{-\beamer@tubs@headsep}
+
 % The height of the watermark part below the 3 bottom lines.
 %\newlength{\beamer@tubs@watermarkheightbottom}
 %\addtolength{\beamer@tubs@watermarkheightbottom}{\beamer@decolines@lineup}
@@ -75,16 +82,23 @@
 %  \end{beamercolorbox}%
 %  } %
   \includegraphics[width=\beamer@tubs@foot@logowidth]{\beamer@tubs@titlepagelogo}
-  \vbox{}\vskip-.70\beamer@tubs@foot@logoheight
+  \vbox{}\vskip-.7\beamer@tubs@foot@logoheight
   \hskip \beamer@tubs@foot@logowidth
-  \begin{beamercolorbox}[wd=\paperwidth,ht=1pt,dp=0pt]{footline}%
-  \end{beamercolorbox}%
-  \vspace{\headerheight}
+  \vbox{
+	  \begin{beamercolorbox}[wd=\paperwidth,ht=1pt,dp=0pt]{footline}%
+	  \end{beamercolorbox}%
+
+	  \begin{beamercolorbox}[leftskip=0.5cm,sep=1pt,ht=.7\beamer@tubs@gaussmargin]{}
+		  \insertdate{} | \insertauthor{} | \inserttitle{} | Seite \insertframenumber{} \beamer@tubs@pageofpages{} \inserttotalframenumber
+	  \end{beamercolorbox}
+  }
+  \vspace{.7\beamer@tubs@foot@logoheight}
+  \vspace{.3\beamer@tubs@gaussmargin}  % (1 - 0.7)
    
   % This seems to fix some alignment problems with the watermark. It has to be
   % always applied if you do not want to see the footer moving up and down when
   % moving from a page with watermark to a page without or vice versa.
-  \vskip-.5px%
+%  \vskip-.5px%
   % Watermark.
 %  \if\beamer@tubs@watermark\@empty\else%
 %    \vskip-\beamer@tubs@watermarkheightbottom%
@@ -102,9 +116,9 @@
   \@tempdima=\textwidth%
   \advance\@tempdima by\beamer@leftmargin%
   \advance\@tempdima by\beamer@rightmargin%
-  \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima,ht=\headerheight]{frametitle}
+  \begin{beamercolorbox}[wd=\the\@tempdima,ht=\headerheight,leftskip=\beamer@tubs@headmargin,sep=\beamer@tubs@headsep]{frametitle}
     \usebeamerfont{frametitle}%
-    \vbox{}\vskip-1ex%
+ 	 \vskip-1ex 
     \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
     \strut\insertframetitle\strut\par%
     {%

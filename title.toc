@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Entstehung}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Vom latenten zum manifesten Konflikt}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Konfliktsymptome}{4}{0}{1}
+\beamer@subsectionintoc {1}{3}{Regeln in der Entwicklungsphase}{6}{0}{1}
+\beamer@sectionintoc {2}{Manifestierung}{7}{0}{2}
+\beamer@sectionintoc {3}{Grundmuster}{16}{0}{3}
+\beamer@sectionintoc {4}{Eskalationsstufen}{19}{0}{4}
+\beamer@subsectionintoc {4}{1}{Die neun Eskalationsstufen}{22}{0}{4}

@@ -1,5 +1,18 @@
 % Copyright 2010 by Johannes Schlatow
 
+\RequirePackage{tikz}
+\usetikzlibrary{fadings}
+\RequirePackage{ifthen}
+
+% This piece of code is just to make the code Babel-compliant with every
+% language.
+% It comes from:
+% http://forum.mathematex.net/latex-f6/beamer-et-shorthandoff-t3851.html
+\makeatletter
+\newboolean{@twopt} \setboolean{@twopt}{false}
+\newcommand*{\twoptoff}{\ifnum \catcode`\;=13 \catcode`\;=12 \setboolean{@twopt}{true} \fi}
+\newcommand*{\twopton}{\if@twopt \catcode`\;=13 \setboolean{@twopt}{false}  \fi}
+
 \mode<presentation>
 
 \def\beamer@tubs@tulogo{}
@@ -96,6 +109,26 @@
   }}\hfill%
 
 }
+
+%% Blocks
+
+\newbox\tubs@blockbox
+\newlength\tubs@blockboxwidth
+\newlength\tubs@blockboxheight
+
+\newcommand{\defblock}[1][]{
+  \setbeamertemplate{block \ifx#1\@empty\else#1\space\fi begin}{%
+    \setbox\tubs@blockbox=\hbox to 0.95\textwidth\bgroup\vbox\bgroup\raggedright\begin{minipage}{0.95\textwidth} \ifx\insertblocktitle\@empty\else{\usebeamerfont{block title\ifx#1\@empty\else\space#1\fi}\usebeamercolor[fg]{block title\ifx#1\@empty\else\space#1\fi}\insertblocktitle}\\[-0.3cm]\twoptoff{}% JustTo be "babel-safe"
+      \usebeamercolor{block title\ifx#1\@empty\else\space#1\fi} \tikz\draw[fg!50!bg] (0,0) -- (\textwidth,0);\twopton{}\\\fi\usebeamerfont{block body\ifx#1\@empty\else\space#1\fi}\usebeamercolor[fg]{block body\ifx#1\@empty\else\space#1\fi} } \setbeamertemplate{block \ifx#1\@empty\else#1\space\fi end}{%
+    \end{minipage}\egroup\egroup%
+    \usebeamercolor{block title\ifx#1\@empty\else\space#1\fi}
+    \begin{center}\begin{tikzpicture} \draw node[draw=fg!50!bg,fill=bg,rounded corners=2pt] {\box\tubs@blockbox};
+      \end{tikzpicture} \end{center} } }
+
+\defblock
+\defblock[example]
+\defblock[alerted]
+
 
 \setbeamertemplate{items}[square]
 

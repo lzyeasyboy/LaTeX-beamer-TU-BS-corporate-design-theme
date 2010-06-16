@@ -1,23 +1,12 @@
-% Copyright 2007 by Marco Barisione
-%
-% This file may be distributed and/or modified
-%
-% 1. under the LaTeX Project Public License and/or
-% 2. under the GNU Public License.
+% Copyright 2010 by Johannes Schlatow
 
 \mode<presentation>
 
-% Use alternative title page style.
-\DeclareOptionBeamer{alternativetitlepage}[true]{\def\beamer@tubs@alternativetitlepage{#1}}
+\def\beamer@tubs@tulogo{}
+\DeclareOptionBeamer{tulogo}{\def\beamer@tubs@tulogo{#1}}
+\def\beamer@tubs@institutelogo{}
+\DeclareOptionBeamer{institutelogo}{\def\beamer@tubs@institutelogo{#1}}
 
-% Logo to use in the alternative title page.
-\def\beamer@tubs@titlepagelogo{}
-\DeclareOptionBeamer{titlepagelogo}{\def\beamer@tubs@titlepagelogo{#1}}
-
-% Bullet shape.
-\DeclareOptionBeamer{bullet}{\def\beamer@tubs@bullet{#1}}
-
-\ExecuteOptionsBeamer{alternativetitlepage=false,bullet=square}
 \ProcessOptionsBeamer
 
 % Colors.
@@ -45,6 +34,9 @@
 \newlength{\beamer@tubs@topmargin}
 \setlength{\beamer@tubs@topmargin}{.21\paperheight}
 
+\newlength{\beamer@tubs@logoheightr}
+\setlength{\beamer@tubs@logoheightr}{.4\beamer@tubs@topmargin}
+
 \newlength{\beamer@tubs@logovskip}
 \setlength{\beamer@tubs@logovskip}{.75\beamer@tubs@logoheight}
 \addtolength{\beamer@tubs@logovskip}{\beamer@tubs@gaussheight}
@@ -59,25 +51,25 @@
 \setlength\leftmarginii{.6\beamer@tubs@normalmargin}
 \setlength\leftmarginiii{.6\beamer@tubs@normalmargin}
 
-% Normal title page.
-\defbeamertemplate*{title page normal}{tubs theme}[1][]
-{}
-
-% Alternative title page, you should use this in a frame with the [plain]
-% option.
-\defbeamertemplate*{title page alternative}{tubs theme}[1][]
+\defbeamertemplate*{title page}{tubs theme}[1][]
 {
   {\parskip0pt\offinterlineskip%
   \hbox{\hskip-\Gm@lmargin\hbox{\vbox{%
   \@tempdima=\textwidth\textwidth=\paperwidth\hsize=\textwidth\def\\{,}\vbox{}\vskip-1.5ex%
-  	\vbox{}\vskip\beamer@tubs@topmargin
+
+  \begin{beamercolorbox}[ht=\beamer@tubs@topmargin]{}
+%    \vbox{}\vskip\beamer@tubs@topmargin
+	 \llap{\includegraphics[height=\beamer@tubs@logoheightr]{\beamer@tubs@institutelogo}\hskip-\paperwidth\hskip\beamer@tubs@gaussmargin}
+	 \vspace{\beamer@tubs@gaussmargin}
+  \end{beamercolorbox}
 
 	\hbox{}\hskip\beamer@tubs@gaussmargin
 	\vbox{
-    % Title.
+	 % header / picture
 	 \begin{beamercolorbox}[wd=\beamer@tubs@gausswidth,ht=\beamer@tubs@gausstopfrst]{title page header}
     \end{beamercolorbox}%
 
+	 % title area
 	 \begin{beamercolorbox}[wd=\beamer@tubs@gausswidth,ht=\beamer@tubs@gausstopscnd,leftskip=\beamer@tubs@normalmargin,sep=\beamer@tubs@gaussmargin]{title page text}
 		 \usebeamerfont{title}\inserttitle\par%
        \ifx\insertsubtitle\@empty%
@@ -90,13 +82,13 @@
 
 	 \vbox{}\vskip-\beamer@tubs@gaussmargin%
 
-    % First line.
+	 % bottom line
     \begin{beamercolorbox}[wd=\beamer@tubs@gausswidth,ht=\beamer@tubs@gaussmargin,dp=0pt]{title page bottom}%
     \end{beamercolorbox}%
 	}
 
 	\vbox{}\vskip-\beamer@tubs@logovskip
-	\includegraphics[height=\beamer@tubs@logoheight]{\beamer@tubs@titlepagelogo}
+	\includegraphics[height=\beamer@tubs@logoheight]{\beamer@tubs@tulogo}
     
     \vskip0pt%
   }}%
@@ -105,37 +97,7 @@
 
 }
 
-\defbeamertemplate*{title page}{tubs}[1][]
-{
-  \def\beamer@tubs@truetext{true}%
-  \ifx\beamer@tubs@alternativetitlepage\beamer@tubs@truetext%
-    \usebeamertemplate{title page alternative}%
-  \else%
-    \usebeamertemplate{title page normal}%
-  \fi%
-}
-
-% Items.
-\defbeamertemplate{itemize item}{squarealt}%
-{\tiny\raise.5ex\hbox{\donotcoloroutermaths$\blacksquare$}}
-\defbeamertemplate{itemize subitem}{squarealt}%
-{\tiny\raise.4ex\hbox{\donotcoloroutermaths$\square$}}
-\defbeamertemplate{itemize subsubitem}{squarealt}%
-{\tiny\raise.3ex\hbox{\donotcoloroutermaths$\blacksquare$}}
-
-\defbeamertemplate{itemize item}{circlealt}%
-{\small\raise.2ex\hbox{\donotcoloroutermaths$\bullet$}}
-\defbeamertemplate{itemize subitem}{circlealt}%
-{\small\raise.1ex\hbox{\donotcoloroutermaths$\circ$}}
-\defbeamertemplate{itemize subsubitem}{circlealt}%
-{\scriptsize\raise.1ex\hbox{\donotcoloroutermaths$\bullet$}}
-
-\def\circletext{circle}
-\ifx\beamer@tubs@bullet\circletext
-  \setbeamertemplate{items}[circlealt]
-\else
-  \setbeamertemplate{items}[squarealt]
-\fi
+\setbeamertemplate{items}[square]
 
 \mode<all>
 

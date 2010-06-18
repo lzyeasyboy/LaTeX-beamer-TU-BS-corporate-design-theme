@@ -1,4 +1,5 @@
 % Copyright 2010 Johannes Schlatow
+\ProvidesPackage{beamerouterthemetubs}[2010/06/16]
 
 \mode<presentation>
 
@@ -6,15 +7,6 @@
 \DeclareOptionBeamer{pageofpages}{\def\beamer@tubs@pageofpages{#1}}
 
 \ProcessOptionsBeamer
-
-%% Enable/disable the watermark.
-%\def\watermarkon{%
-%  \def\beamer@tubs@watermark{\beamer@decolines@watermarkorig}%
-%}
-%\def\watermarkoff{\def\beamer@tubs@watermark{}}
-%
-%% Initially enable the watermark.
-%\watermarkon
 
 % Colors.
 \setbeamercolor*{page header}{parent=palette secondary}
@@ -103,17 +95,6 @@
 
 % Frame title continuations, default
 \defbeamertemplate*{frametitle continuation}{tubs theme}{(\insertcontinuationcount)}
-
-%\defbeamertemplate*{sidebar right}{tubs theme}
-%{
-%  \vskip.1\beamer@leftmargin%
-%  \llap{\insertlogo\hskip.5\beamer@leftmargin}%
-%  \vfill%
-%  \if\beamer@tubs@watermark\@empty\else%
-%  \llap{\includegraphics[height=\beamer@tubs@watermarkheight]{\beamer@decolines@watermark}}%
-%  \vskip-\beamer@tubs@watermarkheightbottom%
-%  \fi
-%}
 
 \mode
 <all>

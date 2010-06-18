@@ -4,16 +4,10 @@
 	11pt
 	]{beamer}
 \usepackage{babel}
-%\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-%\usepackage{ae}
-%\usepackage{lmodern}
-\usepackage[T1]{fontenc}
-\usepackage[math]{iwona}
-%\usepackage{fix-cm}
-%\usepackage{epigrafica}
-%\usepackage{helvet}
-%\usepackage{mathptmx}
+\usepackage[LY1]{fontenc}
+\renewcommand{\rmdefault}{NexusSerifPro}
+\renewcommand{\sfdefault}{NexusSansPro}
 %\usepackage{soul}	%\textst command
 \usepackage{ulem} 	%\uline \sout \xout \uuline \uwave
 
@@ -38,50 +32,7 @@ connection/.style={thick, dotted},
    \addtocounter{framenumber}{\value{framenumbervorappendix}} 
 }
 
-%% outer theme
-%\useoutertheme{miniframes}   % Navigation oben
-%\useoutertheme{shadow}       % Schatten unter dem frametitle
-%\useoutertheme{infolines}
-%\useoutertheme{split}        % infolines wie in warsaw
-
-%% inner theme
-%\useinnertheme{default}      % dreiecke
-%\useinnertheme[shadow=true]{rounded}
-
-%% font theme
-%\usefonttheme{structurebold} % dicke Überschriften
-
-%% color theme
-% beaver: rot-grau
-% crane: sandgelb
-% dolphin: hellblau
-% orchid: Kasten kräftig
-% rose: kasten matt
-% seahorse: grau-blau
-
-%\usecolortheme[named=red]{structure}
-
-
-%\usetheme{Warsaw}
-%\usetheme{Boadilla}
-%\usetheme{Singapore}
-%\usetheme{CambridgeUS}
-%\usetheme{Frankfurt}
-%\usetheme{Madrid}
-
-
-%% set templates
-%\setbeamertemplate{headline}{}
-%\setbeamertemplate{items}[ball]
 \setbeamertemplate{navigation symbols}{}
-
-%% Progressbar
-%\usetheme{progressbar}
-%\usecolortheme{seahorse}
-%\setbeamercolor{title page foot}{bg=blue}
-%\useoutertheme{progressbar32}
-%\progressbaroptions{frametitle=normal,headline=sections,titlepage=normal}
-%\setbeamertemplate{background canvas}{}
 
 %% TUBS
 \usetheme[pageofpages=von,% page count separator
@@ -89,37 +40,6 @@ connection/.style={thick, dotted},
 			 institutelogo=ida]
 			 {TUBS}
 \usecolortheme{tubs}
-
-%% Singapore
-%\useoutertheme{infolines}
-%\usetheme{Singapore}
-%\useinnertheme[shadow=true]{rounded}
-%\usecolortheme[named=Gray]{structure}
-%\usecolortheme{rose}
-
-%% CambridgeUS
-%\useoutertheme{shadow}
-%\usetheme{CambridgeUS}
-%\useinnertheme[shadow=true]{rounded}
-%\usecolortheme[named=darkred]{structure}
-%\setbeamertemplate{items}[ball]
-%\setbeamertemplate{headline}{}
-%\usecolortheme{orchid}
-
-%% Frankfurt
-%\usetheme{Frankfurt}
-%\useoutertheme{infolines}
-%\setbeamertemplate{headline}{}
-%\usecolortheme[named=Brown]{structure}
-
-%% Boadilla | Madrid
-%\usetheme{Boadilla}
-%\usecolortheme[named=Green]{structure}
-
-%% TUBS
-%\setbeamercolor{background canvas}{bg=blue}
-%\useoutertheme{default}
-%\usecolortheme{orchid}
 
 \title[ShortTitle]{Der Konfliktverlauf}
 \author{Johannes Schlatow}
@@ -134,7 +54,7 @@ connection/.style={thick, dotted},
 %  \end{frame}
 %}
 
-\newenvironment{annot}{\begin{block}{}\it}{\end{block}}
+\newenvironment{annot}{\begin{block}{}}{\end{block}}
 
 \begin{document}
 
@@ -146,8 +66,11 @@ connection/.style={thick, dotted},
 \begin{frame}
 	\frametitle{Motivation}
 \begin{annot}
-	Häufig wird unterbewusst gehandelt. Eine \textbf{Sensibilisierung} für typische Aspekte soll bei der Erkennung und Auflösung von Konflikten helfen.	
+	\textrm{Häufig} wird unterbewusst gehandelt. Eine \textbf{Sensibilisierung} für typische Aspekte soll bei der Erkennung und Auflösung von Konflikten helfen.	
 \end{annot}
+\begin{theorem}
+	Test
+\end{theorem}
 
 Konflikt\ldots
 \begin{description}

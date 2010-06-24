@@ -1,0 +1,11 @@
+\DeclareFontFamily{LY1}{NexusSerifPro}{}
+\DeclareFontShape{LY1}{NexusSerifPro}{m}{n}%
+	{ <-> LY1--NexusSerifPro-Regular }{}
+\DeclareFontShape{LY1}{NexusSerifPro}{b}{n}%
+	{ <-> LY1--NexusSerifPro-Bold }{}
+\DeclareFontShape{LY1}{NexusSerifPro}{m}{it}%
+   { <-> ssub * NexusSerifPro/m/n }{}
+\DeclareFontShape{LY1}{NexusSerifPro}{bx}{n}%
+   { <-> ssub * NexusSerifPro/b/n }{}
+\DeclareFontShape{LY1}{NexusSerifPro}{bx}{it}%
+   { <-> ssub * NexusSerifPro/b/n }{}

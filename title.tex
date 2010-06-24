@@ -1,0 +1,158 @@
+\documentclass[
+	ngerman,
+	xcolor=dvipsnames,
+	11pt
+	]{beamer}
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[LY1]{fontenc}
+\renewcommand{\rmdefault}{NexusSerifPro}
+\renewcommand{\sfdefault}{NexusSansPro}
+%\usepackage{soul}	%\textst command
+\usepackage{ulem} 	%\uline \sout \xout \uuline \uwave
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+\tikzset{
+%Define standard arrow tip
+>=stealth',
+%Define style for different line styles
+help lines/.style={dashed, thick},
+axis/.style={<->},
+important line/.style={thick},
+connection/.style={thick, dotted},
+}
+
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+%% TUBS
+\usetheme[pageofpages=von,% page count separator
+          tulogo=tubs,
+			 institutelogo=ida]
+			 {TUBS}
+\usecolortheme{tubs}
+
+\title[ShortTitle]{Corporate Design Template}
+\author{Johannes Schlatow}
+\institute{}
+\date{\today}
+
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Layout}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+\newenvironment{annot}{\begin{block}{}}{\end{block}}
+
+\begin{document}
+
+\begin{frame}[t,plain]
+	\titlepage
+\end{frame}
+
+%\frame{\tableofcontents}
+\begin{frame}
+	\frametitle{Motivation}
+\begin{annot}
+	This is a simple framed box.
+\end{annot}
+
+And some keywords \ldots
+\begin{description}
+	\item \ldots Auslöser
+	\item \ldots Symptome
+	\item \ldots Ursachen
+	\item \ldots Dynamik
+\end{description}
+\end{frame}
+
+\section{Chapter 1}
+\subsection{Subsection 1}
+\begin{frame}
+	\frametitle{Topic 1}
+
+	\begin{columns}[t]
+		\column{.5\textwidth}
+		\begin{block}{Box left}
+			\begin{itemize}
+				\item Item 1
+				\item Item 2
+				\item Item 3
+				\item Item 4
+			\end{itemize}
+		\end{block}
+		\pause
+
+		\column{.5\textwidth}
+		\begin{block}{Box right}
+			\begin{itemize}
+				\item Item 1
+				\item Item 2
+				\item Item 3
+				\item Item 4
+				\item Item 5
+			\end{itemize}
+		\end{block}
+	\end{columns}
+\end{frame}
+
+\subsection{Subsection 2}
+\begin{frame}
+	\frametitle{Topic 2}
+	\begin{alertblock}{Attention}
+		This is something really important.
+		$\Rightarrow$ Take care of it.
+	\end{alertblock}
+\end{frame}
+
+\section{Chapter 2}
+\begin{frame}
+	\frametitle{Topic 3}	
+
+	\begin{columns}[t]
+		\begin{column}{.5\textwidth}
+			\begin{exampleblock}<1->{Example 1}
+				Add some text.
+			\end{exampleblock}
+
+			\begin{exampleblock}<2->{Example 2}
+				Add another text.
+			\end{exampleblock}	
+		\end{column}
+	
+		\begin{column}{.5\textwidth}
+			\begin{exampleblock}<3->{Example 3}
+				More text here.
+			\end{exampleblock}
+
+			\begin{exampleblock}<4->{Example 4}
+				Last but not least.
+			\end{exampleblock}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\section{Appendix}
+
+\beginbackup
+\begin{frame}
+	\frametitle{Backup topic 1}
+	This is a backup slide. Take a look at the page numbering ;)
+\end{frame}
+
+\backupend
+
+\end{document}

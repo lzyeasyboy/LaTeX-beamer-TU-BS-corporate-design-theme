@@ -1,0 +1,22 @@
+# Description
+This is a template for LaTeX beamer presentations. It provides a theme that does conform to the rules for the new corporate design of *TU Braunschweig*.
+
+Please feel free to contribute to this project.
+
+# Usage
+You need to install the font *Nexus* that can be found [here](http://www.tu-braunschweig.de/presse/cd).
+
+## Install *OpenType* fonts on texlive
+I am not very familiar with the installation and configuration of fonts in texlive. Here is what worked for me:
+
+1. Use *otftotfm* to convert and install the font:
+
+	 otftotfm -a -e texnansx NexusSansPro-Regular.otf -fkern -fliga LY1--NexusSansPro-Regular
+
+	 otftotfm -a -e texnansx NexusSansPro-Bold.otf -fkern -fliga LY1--NexusSansPro-Bold
+
+	 otftotfm -a -e texnansx NexusSerifPro-Regular.otf -fkern -fliga LY1--NexusSserifPro-Regular
+
+	 otftotfm -a -e texnansx NexusSerifPro-Bold.otf -fkern -fliga LY1--NexusSerifPro-Bold
+
+1. (optional) change the .fd file to your needs.

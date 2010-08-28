@@ -9,3 +9,11 @@
    { <-> ssub * NexusSansPro/b/n }{}
 \DeclareFontShape{LY1}{NexusSansPro}{bx}{it}%
    { <-> ssub * NexusSansPro/b/n }{}
+\DeclareFontFamily{LY1}{cmtt}{\hyphenchar \font\m@ne}
+\DeclareFontShape{LY1}{cmtt}{m}{n}{
+        <-9>    ectt0800
+        <9-10>  ectt0900
+        <10-12> ectt1000
+        <12-17> ectt1200
+        <17->   ectt1728
+      }{}

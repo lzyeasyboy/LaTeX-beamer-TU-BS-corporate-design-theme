@@ -79,7 +79,7 @@
 	\hbox{}\hskip\beamer@tubs@gaussmargin
 	\vbox{
 	 % header / picture
-	 \begin{beamercolorbox}[wd=\beamer@tubs@gausswidth,ht=\beamer@tubs@gausstopfrst]{title page header}
+	 \begin{beamercolorbox}[wd=\beamer@tubs@gausswidth,ht=\beamer@tubs@gausstopfrst]{title page header}\includegraphics[height=\beamer@tubs@gausstopfrst]{titel.jpg}
     \end{beamercolorbox}%
 
 	 % title area
@@ -123,8 +123,8 @@
 
 \newcommand{\defblock}[1][]{
   \setbeamertemplate{block \ifx#1\@empty\else#1\space\fi begin}{%
-    \setbox\tubs@blockbox=\hbox to 0.95\textwidth\bgroup\vbox\bgroup\raggedright\begin{minipage}{0.95\textwidth} \ifx\insertblocktitle\@empty\else{\usebeamerfont{block title\ifx#1\@empty\else\space#1\fi}\usebeamercolor[fg]{block title\ifx#1\@empty\else\space#1\fi}\insertblocktitle}\\[-0.3cm]\twoptoff{}% JustTo be "babel-safe"
-      \usebeamercolor{block title\ifx#1\@empty\else\space#1\fi} \tikz\draw[fg!50!bg] (0,0) -- (\textwidth,0);\twopton{}\\\fi\usebeamerfont{block body\ifx#1\@empty\else\space#1\fi}\usebeamercolor[fg]{block body\ifx#1\@empty\else\space#1\fi} } \setbeamertemplate{block \ifx#1\@empty\else#1\space\fi end}{%
+  \setbox\tubs@blockbox=\hbox to 0.95\textwidth\bgroup\vbox\bgroup\raggedright\begin{minipage}{0.95\textwidth} \ifx\insertblocktitle\@empty\else{\usebeamerfont{block title\ifx#1\@empty\else\space#1\fi}\usebeamercolor[fg]{block title\ifx#1\@empty\else\space#1\fi}\insertblocktitle}\\[-0.3cm]\twoptoff{}% JustTo be "babel-safe"
+	  \usebeamercolor{block title\ifx#1\@empty\else\space#1\fi} \tikz\draw[fg!50!bg] (0,0) -- (\textwidth,0);\twopton{}\\\fi\usebeamerfont{block body\ifx#1\@empty\else\space#1\fi}\usebeamercolor[fg]{block body\ifx#1\@empty\else\space#1\fi} \ifx\insertblocktitle\@empty\else{\vbox{}\vskip-2.5em\vbox{}}\fi}  \setbeamertemplate{block \ifx#1\@empty\else#1\space\fi end}{%
     \end{minipage}\egroup\egroup%
     \usebeamercolor{block title\ifx#1\@empty\else\space#1\fi}
     \begin{center}\begin{tikzpicture} \draw node[draw=fg!50!bg,fill=bg,rounded corners=2pt] {\box\tubs@blockbox};
@@ -133,7 +133,6 @@
 \defblock
 \defblock[example]
 \defblock[alerted]
-
 
 \setbeamertemplate{items}[square]
 
